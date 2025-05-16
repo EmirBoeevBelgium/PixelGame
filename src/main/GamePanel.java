@@ -2,6 +2,7 @@ package main;
 
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
+import objects.AtariPlatform;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,21 +14,21 @@ public class GamePanel extends JPanel {
     private MouseInputs mouseInputs;
     private JFrame jFrame;
     private int xDelta, yDelta;
+    private int rectWidth= 200, rectHeight = 50;
+    private AtariPlatform atariPlatform;
 
     public GamePanel(JFrame jframe) {
         this.jFrame = jframe;
         xDelta = jframe.getWidth()/2;
         yDelta = jframe.getHeight()-100;
-        mouseInputs = new MouseInputs(this);
+
+        atariPlatform = new AtariPlatform(jFrame);
+        mouseInputs = new MouseInputs(this, atariPlatform);
         addKeyListener(new KeyboardInputs(this));
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
     }
 
-    public void printHeight() {
-        System.out.println("Height: " + jFrame.getHeight());
-        System.out.println("Width: " + jFrame.getWidth());
-    }
 
     public void changeXDelta(int value) {
         this.xDelta += value;
@@ -39,13 +40,22 @@ public class GamePanel extends JPanel {
     }
 
 
-    public void setRectPos(int x, int y) {
-        this.xDelta = x;
-       // this.yDelta = y;
+   public void setRectPos(int x, int y) {
+        atariPlatform.move(x, y);
         repaint();
     }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.fillRect(xDelta, yDelta, 200, 50);
+        atariPlatform.draw(g);
+
     }
+
+    public int getRectWidth() {
+        return rectWidth;
+    }
+
+    public int getRectHeight() {
+        return rectHeight;
+    }
+
 }

@@ -1,25 +1,24 @@
 package objects;
 
-import main.GamePanel;
-
 import javax.swing.*;
 import java.awt.*;
 
-public class AtariPlatform {
-    private final int rectWidth= 200, rectHeight = 50;
+public class AtariBall {
+
+    private final int ovalWidth= 20, ovalHeight = 20;
     private int xDelta, yDelta;
-    private final Color color = Color.BLACK;
+    private final Color color = Color.RED;
     private JFrame jFrame;
 
-    public AtariPlatform(JFrame jframe) {
+    public AtariBall(JFrame jframe) {
         this.jFrame = jframe;
         xDelta = jframe.getWidth()/2;
-        yDelta = jframe.getHeight()-100;
+        yDelta = jframe.getHeight()/2;
     }
 
     public void draw(Graphics g) {
         g.setColor(color);
-        g.fillRect(xDelta, yDelta, rectWidth, rectHeight);
+        g.fillOval(xDelta, yDelta, ovalWidth, ovalHeight);
     }
 
     public void move(int x) {
@@ -30,10 +29,10 @@ public class AtariPlatform {
 
 
     public int getRectWidth() {
-        return rectWidth;
+        return ovalWidth;
     }
 
     public int getRectHeight() {
-        return rectHeight;
+        return ovalHeight;
     }
 }

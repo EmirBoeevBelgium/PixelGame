@@ -25,7 +25,7 @@ public class KeyboardInputs implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-        switch(e.getKeyCode()) {
+       /* switch(e.getKeyCode()) {
             case KeyEvent.VK_Z:
                 gamePanel.changeYDelta(-5);
                 break;
@@ -39,6 +39,6 @@ public class KeyboardInputs implements KeyListener {
             case KeyEvent.VK_D:
                 gamePanel.changeXDelta(5);
                 break;
-        }
+        }*/
     }
 }

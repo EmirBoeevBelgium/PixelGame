@@ -21,13 +21,13 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         System.out.println("Clicked the mouse");
-        System.out.println(e.getX() + (gamePanel.getRectWidth()/2));
+       /* System.out.println(e.getX() + (gamePanel.getRectWidth()/2));
         if (gamePanel.getWidth() > (e.getX() + gamePanel.getRectWidth()/2)) {
 
             System.out.println(e.getX());
             System.out.println("It works!");
             System.out.println(gamePanel.getWidth());
-        }
+        }*/
     }
 
     @Override
@@ -58,7 +58,7 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         if (gamePanel.getWidth() >= (e.getX() + atariPlatform.getRectWidth()/2) && 0 <= (e.getX() - atariPlatform.getRectWidth()/2)) {
-            gamePanel.setRectPos(e.getX() - (gamePanel.getRectWidth()/2), e.getY() - (gamePanel.getRectHeight()/2));
+            gamePanel.setObjPos(e.getX() - (atariPlatform.getRectWidth()/2));
         }
 
     }

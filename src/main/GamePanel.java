@@ -23,7 +23,7 @@ public class GamePanel extends JPanel {
         this.jFrame = jframe;
 
         atariPlatform = new AtariPlatform(jframe);
-        atariBall = new AtariBall(jframe);
+        atariBall = new AtariBall(jframe, atariPlatform);
         mouseInputs = new MouseInputs(this, atariPlatform);
         addKeyListener(new KeyboardInputs(this));
         addMouseListener(mouseInputs);
@@ -37,17 +37,23 @@ public class GamePanel extends JPanel {
    public void setObjPos(int x) {
         atariPlatform.move(x);
    }
+
+    public void updateAtariBall() {
+        atariBall.move();
+    }
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        updateAtariBall();
         atariPlatform.draw(g);
         atariBall.draw(g);
 
-        frames++;
+       /* frames++;
         if(System.currentTimeMillis() - lastCheck >= 1000) {
             lastCheck = System.currentTimeMillis();
             System.out.println("Frames: " + frames);
             frames = 0;
-        }
+        }*/
 
         repaint();
     }

@@ -61,5 +61,6 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
             gamePanel.setObjPos(e.getX() - (atariPlatform.getRectWidth()/2));
         }
 
+       // System.out.println("X: From " + atariPlatform.getXDelta() + " to " + (atariPlatform.getXDelta() + atariPlatform.getRectWidth()));
     }
 }

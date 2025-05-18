@@ -8,6 +8,7 @@ public class GameWindow {
     public GameWindow(JFrame jframe) {
         this.jframe = jframe;
 
+
         jframe.setExtendedState(JFrame.MAXIMIZED_BOTH);
         jframe.setUndecorated(false);
 
